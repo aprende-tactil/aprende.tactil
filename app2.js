@@ -57,6 +57,15 @@ document.addEventListener('keydown', function(event) {
         const link = currentSlide.querySelector('a');  // Selecciona el primer enlace en el slide
         if (link) {
             window.open(link.href, '_blank');  // Abre el enlace en una nueva pestaña
+        } else {
+            const button = currentSlide.querySelector('button'); // Selecciona el botón dentro de la diapositiva activa
+            if (button) {
+                const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1]; // Extrae el nombre del PDF
+                window.open(`leerPDF.html?pdf=${pdfFile}`, '_blank'); // Abre leerPDF.html con el PDF especificado
+            }
         }
     }
 });
+
+// Ejemplo para marcar una diapositiva como activa (puedes personalizar esta lógica)
+document.querySelector('.slide').classList.add('active'); // Marca la primera diapositiva como activa

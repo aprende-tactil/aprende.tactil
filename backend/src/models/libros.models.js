@@ -1,8 +1,13 @@
 import {Schema,model} from 'mongoose';
 
-const libros = new Schema({
-    libro :{
-        type:Stringm,
+const libro = new Schema({
+    titulo:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    pdf :{
+        type:String,
         required:true,
         trim:true
     },
@@ -11,9 +16,9 @@ const libros = new Schema({
         required:true,
         trim:true
     },
-    añoLectivo:{
-        type:Number,
+    anio:{
+        type:String,
         required:true
     }
 })
-export default  model('libros',libros)
+export default  model('libro',libro)

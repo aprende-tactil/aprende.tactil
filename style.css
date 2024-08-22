@@ -30,6 +30,11 @@ body {
     text-align: center;
 }
 
+.slide a{
+    text-decoration: none;
+    color: #333;
+}
+
 h2 {
     font-size: 2em;
     color: #333;

@@ -29,13 +29,13 @@ function speakCurrentSlide(slideIndex) {
 
     const utterance = new SpeechSynthesisUtterance(fullText.trim());
     utterance.lang = 'es-ES';  // Configura el idioma a español (España)
-    utterance.rate = 0.8;  // Configura la velocidad (1 es normal, menos de 1 es más lento)
+    utterance.rate = 1;  // Configura la velocidad (1 es normal, menos de 1 es más lento)
     window.speechSynthesis.speak(utterance);
 }
 
 // Función para dar la bienvenida
 function welcomeMessage() {
-    const welcomeText = "Bienvenido a nuestra página. Puedes navegar utilizando las teclas del navegador.";
+    const welcomeText = "Ingreso a la parte de matematicas. Puedes navegar utilizando las teclas del navegador para ver el material disponible.";
     const welcomeUtterance = new SpeechSynthesisUtterance(welcomeText);
     welcomeUtterance.lang = 'es-ES';  // Configura el idioma a español (España)
     welcomeUtterance.rate = 0.8;  // Hace que el mensaje se lea más lento

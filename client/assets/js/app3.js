@@ -35,10 +35,10 @@ function speakCurrentSlide(slideIndex) {
 
 // Función para dar la bienvenida
 function welcomeMessage() {
-    const welcomeText = "Ingreso a la parte de Lengua y literatura. Puedes navegar utilizando las teclas del navegador para ver el material disponible.";
+    const welcomeText = "Ingreso a la parte de Lengua. Puedes navegar utilizando las teclas del navegador para ver el material disponible o volver a la pagina anterior presionando escape";
     const welcomeUtterance = new SpeechSynthesisUtterance(welcomeText);
     welcomeUtterance.lang = 'es-ES';  // Configura el idioma a español (España)
-    welcomeUtterance.rate = 0.8;  
+    welcomeUtterance.rate = 0.8;  // Hace que el mensaje se lea más lento
     window.speechSynthesis.speak(welcomeUtterance);
 }
 
@@ -56,14 +56,16 @@ document.addEventListener('keydown', function(event) {
         const currentSlide = slides[index];
         const link = currentSlide.querySelector('a');  // Selecciona el primer enlace en el slide
         if (link) {
-            window.open(link.href);  // Abre el enlace en una nueva pestaña
+            window.location.href = link.href;  // Abre el enlace en la misma pestaña
         } else {
             const button = currentSlide.querySelector('button'); // Selecciona el botón dentro de la diapositiva activa
             if (button) {
                 const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1]; // Extrae el nombre del PDF
-                window.open(`leerPDF.html?pdf=${pdfFile}`, '_blank'); // Abre leerPDF.html con el PDF especificado
+                window.location.href = `leerPDF.html?pdf=${pdfFile}`; // Abre leerPDF.html con el PDF especificado en la misma pestaña
             }
         }
+    } else if (event.key === 'Escape') {
+        window.history.back(); // Regresa a la página anterior
     }
 });
 

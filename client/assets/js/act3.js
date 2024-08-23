@@ -1,9 +1,9 @@
- // Preguntas y respuestas
- const questions = [
-    { question: "¿Cuál es la función de un adjetivo?", answers: ["Modificar un sustantivo", "Sustituir un sustantivo", "Indicar lugar", "Unir oraciones"], correct: 0 },
-    { question: "¿Qué es un pronombre?", answers: ["Una palabra que sustituye a un sustantivo", "Una palabra que modifica a un adjetivo", "Una palabra que expresa una acción", "Una palabra que indica tiempo"], correct: 0 },
-    { question: "¿Qué es una oración compuesta?", answers: ["Una oración con un solo sujeto", "Una oración que tiene más de una proposición", "Una oración sin verbo", "Una oración que contiene una interjección"], correct: 1 },
-    { question: "¿Cuál es el complemento directo en la oración 'Juan lee un libro'?", answers: ["Juan", "lee", "un libro", "Ninguno"], correct: 2 }
+   // Preguntas y respuestas
+   const questions = [
+    { question: "¿Cuánto es 5 + 3?", answers: ["6", "7", "8", "9"], correct: 2 },
+    { question: "¿Cuánto es 9 - 4?", answers: ["3", "4", "5", "6"], correct: 2 },
+    { question: "¿Cuánto es 4 × 6?", answers: ["20", "22", "24", "26"], correct: 2 },
+    { question: "¿Cuánto es 12 ÷ 3?", answers: ["3", "4", "5", "6"], correct: 1 }
 ];
 
 let currentQuestionIndex = 0;
@@ -112,7 +112,7 @@ $("next").onclick = nextQuestion;
 
 // Función para reproducir las instrucciones
 function speakInstructions() {
-    const instructions = "Bienvenido al juego de lengua. Usa las flechas arriba y abajo para seleccionar una respuesta y presiona Enter para confirmar. Se pasará a otra pregunta luego de responder. Puedes salir del juego en cualquier momento presionando Escape.";
+    const instructions = "Bienvenido al juego matemático. Usa las flechas arriba y abajo para seleccionar una respuesta y presiona Enter para confirmar. se pasara a otra pregunta luego de responder. Puedes salir del juego en cualquier momento presionando Escape.";
     const utterance = new SpeechSynthesisUtterance(instructions);
     speechSynthesis.speak(utterance);
 }

@@ -35,7 +35,7 @@ function speakCurrentSlide(slideIndex) {
 
 // Función para dar la bienvenida
 function welcomeMessage() {
-    const welcomeText = "Ingreso a la parte de matematicas. Puedes navegar utilizando las teclas del navegador para ver el material disponible.";
+    const welcomeText = "Ingreso a la parte de matematicas. Puedes navegar utilizando las teclas del navegador para ver el material disponible o volver a la pagina anterior presionando escape";
     const welcomeUtterance = new SpeechSynthesisUtterance(welcomeText);
     welcomeUtterance.lang = 'es-ES';  // Configura el idioma a español (España)
     welcomeUtterance.rate = 0.8;  // Hace que el mensaje se lea más lento

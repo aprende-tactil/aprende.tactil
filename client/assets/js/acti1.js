@@ -1,6 +1,5 @@
-
-// Función para hablar el texto proporcionado
-function speakText(text) {
+  // Función para hablar el texto proporcionado
+  function speakText(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'es-ES'; // Código para español (España)
     utterance.onend = function() {
@@ -28,7 +27,7 @@ function handleEscapeKey(event) {
 // Llama a la función para hablar el contenido al cargar la página
 window.onload = function() {
     speakText("Conceptos básicos de matemáticas");
-    setTimeout(readContent, 3000); // Espera 3 segundos antes de leer el contenido
+    setTimeout(readContent, 3000);
 };
 
 // Añade un evento para escuchar la tecla Escape

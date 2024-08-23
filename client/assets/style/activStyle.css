@@ -1,38 +1,18 @@
-
 body {
     font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+h1 {
+    color: #007bff;
 }
 .content {
-    text-align: center;
-    margin: 20px;
-}
-.question {
-    font-size: 24px;
-    margin: 20px;
-}
-.answers {
-    list-style: none;
-    padding: 0;
-}
-.answers li {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 5px 0;
-    padding: 10px;
-    cursor: pointer;
-}
-.answers li.selected {
-    background: #d0e1f9;
+    max-width: 600px;
+    margin: auto;
 }
 .controls {
     margin-top: 20px;
-}
-.controls button {
-    padding: 10px 20px;
-    font-size: 16px;
-}
-#feedback {
-    font-size: 20px;
-    margin-top: 20px;
+    text-align: center;
 }

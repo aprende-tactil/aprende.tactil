@@ -32,7 +32,8 @@ const login = async (e) => {
       
         localStorage.setItem('token', respuesta.token);
 
-        window.location.href = '/client/'
+        // Redirigimos al usuario a la landingPage.
+        window.location.href = '/client/index.html'
     }
 
 }

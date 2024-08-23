@@ -100,12 +100,19 @@ function handleKeyPress(event) {
         // Confirmar respuesta
         nextQuestion();
     } else if (event.key === 'Escape') {
-        // Salir del juego
-        if (confirm('¿Quieres salir del juego?')) {
-            window.location.reload();
-        }
+        // Volver a la página anterior
+        window.history.back();
     }
 }
+
+
+// Asegúrate de que el evento de la tecla se registre correctamente
+document.addEventListener('keydown', handleKeyPress);
+
+
+// Asegúrate de que el evento de la tecla se registre correctamente
+document.addEventListener('keydown', handleKeyPress);
+
 
 document.addEventListener('keydown', handleKeyPress);
 $("next").onclick = nextQuestion;

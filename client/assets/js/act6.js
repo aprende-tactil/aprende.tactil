@@ -83,7 +83,6 @@ function speakFeedback(message) {
     speechSynthesis.speak(utterance);
 }
 
-// Configurar los eventos del teclado
 function handleKeyPress(event) {
     if (event.key === 'ArrowUp') {
         // Cambiar selección hacia arriba
@@ -100,12 +99,11 @@ function handleKeyPress(event) {
         // Confirmar respuesta
         nextQuestion();
     } else if (event.key === 'Escape') {
-        // Salir del juego
-        if (confirm('¿Quieres salir del juego?')) {
-            window.location.reload();
-        }
+        // Volver a la página anterior
+        window.history.back();
     }
 }
+
 
 document.addEventListener('keydown', handleKeyPress);
 $("next").onclick = nextQuestion;

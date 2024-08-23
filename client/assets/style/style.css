@@ -39,3 +39,24 @@ h2 {
     font-size: 2em;
     color: #333;
 }
+
+
+.boton {
+    position: fixed;
+    bottom: 200px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border:solid #333 1px;
+}
+
+.boton:hover {
+    background-color: #0056b3;
+}

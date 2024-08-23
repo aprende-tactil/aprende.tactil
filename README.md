@@ -5,8 +5,9 @@ Plataforma.
 La plataforma está diseñada para facilitar el aprendizaje de materias escolares a personas con discapacidad visual. Nuestro objetivo es proporcionar un entorno educativo accesible y sencillo que permita a los usuarios aprender de manera efectiva y cómoda.
 
 ```
+//pasos para poner en marcha este proyecto
 $ git clone https://github.com/aprende-tactil/aprende.tactil.git
 $ cd ../aprendeTactil
 $ npm install //para descargar las dependencias
 $ se creara la base de datos TEST 
-$ inicilice el servidor con npm run dev.
+$ inicialice el servidor con npm run dev.

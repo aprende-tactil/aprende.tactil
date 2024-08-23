@@ -20,7 +20,25 @@ function prevSlide() {
 
 function speakCurrentSlide(slideIndex) {
     const slide = slides[slideIndex];
-    const texts = slide.querySelectorAll('h2, p, li'); // Selecciona los elementos que quieres leer
+    const texts = slide.querySelectorAll('h2, p, li'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     let fullText = '';
 
     texts.forEach(element => {
@@ -28,8 +46,8 @@ function speakCurrentSlide(slideIndex) {
     });
 
     const utterance = new SpeechSynthesisUtterance(fullText.trim());
-    utterance.lang = 'es-ES';  // Configura el idioma a español (España)
-    utterance.rate = 1;  // Configura la velocidad (1 es normal, menos de 1 es más lento)
+    utterance.lang = 'es-ES';  
+    utterance.rate = 1; 
     window.speechSynthesis.speak(utterance);
 }
 
@@ -37,8 +55,8 @@ function speakCurrentSlide(slideIndex) {
 function welcomeMessage() {
     const welcomeText = "Ingreso a la parte de Lengua. Puedes navegar utilizando las teclas del navegador para ver el material disponible o volver a la pagina anterior presionando escape";
     const welcomeUtterance = new SpeechSynthesisUtterance(welcomeText);
-    welcomeUtterance.lang = 'es-ES';  // Configura el idioma a español (España)
-    welcomeUtterance.rate = 0.8;  // Hace que el mensaje se lea más lento
+    welcomeUtterance.lang = 'es-ES';  
+    welcomeUtterance.rate = 0.8;  
     window.speechSynthesis.speak(welcomeUtterance);
 }
 
@@ -60,14 +78,14 @@ document.addEventListener('keydown', function(event) {
         } else {
             const button = currentSlide.querySelector('button'); // Selecciona el botón dentro de la diapositiva activa
             if (button) {
-                const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1]; // Extrae el nombre del PDF
-                window.location.href = `leerPDF.html?pdf=${pdfFile}`; // Abre leerPDF.html con el PDF especificado en la misma pestaña
+                const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1];
+                window.location.href = `leerPDF.html?pdf=${pdfFile}`; 
             }
         }
     } else if (event.key === 'Escape') {
-        window.history.back(); // Regresa a la página anterior
+        window.history.back(); 
     }
 });
 
-// Ejemplo para marcar una diapositiva como activa (puedes personalizar esta lógica)
-document.querySelector('.slide').classList.add('active'); // Marca la primera diapositiva como activa
+
+document.querySelector('.slide').classList.add('active'); 

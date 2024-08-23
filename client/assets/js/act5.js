@@ -20,7 +20,7 @@ function handleEscapeKey(event) {
     if (event.key === 'Escape') {
         speechSynthesis.cancel();
    
-        window.history.back(); // Navega a la página anterior
+        window.history.back(); 
     }
 }
 

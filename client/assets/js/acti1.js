@@ -1,7 +1,7 @@
   // Función para hablar el texto proporcionado
   function speakText(text) {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'es-ES'; // Código para español (España)
+    utterance.lang = 'es-ES'; 
     utterance.onend = function() {
         speakText("Puedes presionar la tecla Escape para volver a la página anterior.");
     };
@@ -20,7 +20,7 @@ function handleEscapeKey(event) {
     if (event.key === 'Escape') {
         speechSynthesis.cancel();
    
-        window.history.back(); // Navega a la página anterior
+        window.history.back(); 
     }
 }
 

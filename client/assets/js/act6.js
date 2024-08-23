@@ -1,4 +1,4 @@
- // Preguntas y respuestas
+ 
  const questions = [
     { question: "¿Cuál es la función de un adjetivo?", answers: ["Modificar un sustantivo", "Sustituir un sustantivo", "Indicar lugar", "Unir oraciones"], correct: 0 },
     { question: "¿Qué es un pronombre?", answers: ["Una palabra que sustituye a un sustantivo", "Una palabra que modifica a un adjetivo", "Una palabra que expresa una acción", "Una palabra que indica tiempo"], correct: 0 },
@@ -77,7 +77,6 @@ function nextQuestion() {
     }, 2000); 
 }
 
-// Función para leer el feedback
 function speakFeedback(message) {
     const utterance = new SpeechSynthesisUtterance(message);
     speechSynthesis.speak(utterance);

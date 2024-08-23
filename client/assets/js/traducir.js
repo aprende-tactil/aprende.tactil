@@ -30,7 +30,7 @@ let utterance;
             }
 
             utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'es-ES'; // Código para español (España)
+            utterance.lang = 'es-ES'; 
             utterance.onend = function() {
                 isReading = false;
             };
@@ -43,7 +43,7 @@ let utterance;
             isReading = false;
         }
 
-        // Manejadores de eventos de teclado
+        
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 if (!isReading) {

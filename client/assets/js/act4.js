@@ -1,4 +1,4 @@
- // Función para hablar el texto proporcionado
+ // Función que lee el texto proporcionado
  function speakText(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'es-ES'; 
@@ -20,7 +20,7 @@ function handleEscapeKey(event) {
     if (event.key === 'Escape') {
         speechSynthesis.cancel();
    
-        window.history.back(); // Navega a la página anterior
+        window.history.back(); 
     }
 }
 

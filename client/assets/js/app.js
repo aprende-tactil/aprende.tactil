@@ -20,7 +20,7 @@ function prevSlide() {
 
 function speakCurrentSlide(slideIndex) {
     const slide = slides[slideIndex];
-    const texts = slide.querySelectorAll('h2, p, li'); // Selecciona los elementos que quieres leer
+    const texts = slide.querySelectorAll('h2, p, li'); 
     let fullText = '';
 
     texts.forEach(element => {
@@ -28,21 +28,21 @@ function speakCurrentSlide(slideIndex) {
     });
 
     const utterance = new SpeechSynthesisUtterance(fullText.trim());
-    utterance.lang = 'es-ES';  // Configura el idioma a español (España)
-    utterance.rate = 0.8;  // Configura la velocidad (1 es normal, menos de 1 es más lento)
+    utterance.lang = 'es-ES'; 
+    utterance.rate = 0.8;  
     window.speechSynthesis.speak(utterance);
 }
 
-// Función para dar la bienvenida
+// Función de bienvenida a la pagina
 function welcomeMessage() {
     const welcomeText = "Bienvenido a nuestra página educativa. Puedes navegar utilizando las flechas del teclado para navegar entre las materias.";
     const welcomeUtterance = new SpeechSynthesisUtterance(welcomeText);
-    welcomeUtterance.lang = 'es-ES';  // Configura el idioma a español (España)
-    welcomeUtterance.rate = 0.8;  // Hace que el mensaje se lea más lento
+    welcomeUtterance.lang = 'es-ES';  
+    welcomeUtterance.rate = 0.8;  
     window.speechSynthesis.speak(welcomeUtterance);
 }
 
-// Ejecutar mensaje de bienvenida al cargar la página
+// Ejecuta mensaje de bienvenida al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     welcomeMessage();
 });
@@ -58,13 +58,13 @@ document.addEventListener('keydown', function(event) {
         if (link) {
             window.location.href = link.href;  // Abre el enlace en la misma pestaña
         } else {
-            const button = currentSlide.querySelector('button'); // Selecciona el botón dentro de la diapositiva activa
+            const button = currentSlide.querySelector('button'); 
             if (button) {
-                const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1]; // Extrae el nombre del PDF
-                window.location.href = `leerPDF.html?pdf=${pdfFile}`; // Abre leerPDF.html con el PDF especificado en la misma pestaña
+                const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1]; 
+                window.location.href = `leerPDF.html?pdf=${pdfFile}`; 
             }
         }
     } else if (event.key === 'Escape') {
-        window.history.back(); // Regresa a la página anterior
+        window.history.back();
     }
 });

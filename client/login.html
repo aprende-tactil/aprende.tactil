@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style/form.style.css">
+    <link rel="stylesheet" href="./assets/style/formStyle.css">
 
     <title>Document</title>
     
@@ -11,16 +11,22 @@
 <body>
     <main>
     <h1 class="titulo">INGRESAR</h1>
-    <form id="form">
-        <div class="form-container">
-            <label for="exampleFormControlInput1" class="form-label">email</label>
-            <input type="text" name="" id="email" placeholder="Roberto_E">
-            <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-            <input type="password" name="password" placeholder="#####" id="password">
-            <p class="link2">¿Olvidaste tu contraseña? <a class="link" href="">Click aqui</a></p>
-            <button type="submit" class="btn btn-dark">Entrar</button> 
+    <div class="contenedor">
+        <form id="form">
+            <div class="form-container">
+                <label for="exampleFormControlInput1" class="form-label">email</label>
+                <input type="text" name="" id="email" placeholder="Roberto_E">
+                <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
+                <input type="password" name="password" placeholder="#####" id="password">
+                <p class="link2">¿Olvidaste tu contraseña? <a class="link" href="">Click aqui</a></p>
+                <button type="submit" class="btn btn-dark">Entrar</button> 
+            </div>
+        </form>
+        <div class="imgConten">
+            <img src="../client/assets/style/imagenes/1.jfif" alt="" srcset="">
         </div>
-    </form>
+    </div>
+    
     </main>
         
     <script src="./assets/js/login.js"></script>

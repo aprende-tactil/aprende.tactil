@@ -1,4 +1,4 @@
-   // Preguntas y respuestas
+
    const questions = [
     { question: "¿Cuánto es 5 + 3?", answers: ["6", "7", "8", "9"], correct: 2 },
     { question: "¿Cuánto es 9 - 4?", answers: ["3", "4", "5", "6"], correct: 2 },
@@ -9,7 +9,7 @@
 let currentQuestionIndex = 0;
 let selectedAnswerIndex = null;
 
-// Seleccionar un elemento por ID
+
 function $(id) {
     return document.getElementById(id);
 }
@@ -83,34 +83,34 @@ function speakFeedback(message) {
     speechSynthesis.speak(utterance);
 }
 
-// Configurar los eventos del teclado
+// Configura los eventos del teclado
 function handleKeyPress(event) {
     if (event.key === 'ArrowUp') {
-        // Cambiar selección hacia arriba
+        // Cambia selección hacia arriba
         if (selectedAnswerIndex > 0) {
             selectAnswer(selectedAnswerIndex - 1);
         }
     } else if (event.key === 'ArrowDown') {
-        // Cambiar selección hacia abajo
+        // Cambia selección hacia abajo
         const answers = $("answers").children;
         if (selectedAnswerIndex < answers.length - 1) {
             selectAnswer(selectedAnswerIndex + 1);
         }
     } else if (event.key === 'Enter') {
-        // Confirmar respuesta
+        // Confirma respuesta
         nextQuestion();
     } else if (event.key === 'Escape') {
-        // Volver a la página anterior
+        // Vuelve a la página anterior
         window.history.back();
     }
 }
 
 
-// Asegúrate de que el evento de la tecla se registre correctamente
+// Verificacion de que el evento de la tecla se registre correctamente
 document.addEventListener('keydown', handleKeyPress);
 
 
-// Asegúrate de que el evento de la tecla se registre correctamente
+// Verificacion de que el evento de la tecla se registre correctamente
 document.addEventListener('keydown', handleKeyPress);
 
 

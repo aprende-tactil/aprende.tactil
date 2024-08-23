@@ -115,7 +115,7 @@
         // Función para leer la respuesta seleccionada
         function speakAnswer(index) {
             const answer = questions[currentQuestionIndex].answers[index];
-            const utterance = new SpeechSynthesisUtterance("Seleccionaste la respuesta: " + answer);
+            const utterance = new SpeechSynthesisUtterance("Estas en la respuesta: " + answer);
             speechSynthesis.speak(utterance);
         }
 
@@ -175,7 +175,7 @@
 
         // Función para reproducir las instrucciones
         function speakInstructions() {
-            const instructions = "Bienvenido al juego matemático. Usa las flechas arriba y abajo para seleccionar una respuesta y presiona Enter para confirmar. Haz clic en el botón 'Siguiente Pregunta' para continuar después de seleccionar una respuesta. Puedes salir del juego en cualquier momento presionando Escape.";
+            const instructions = "Bienvenido al juego matemático. Usa las flechas arriba y abajo para seleccionar una respuesta y presiona Enter para confirmar. se pasara a otra pregunta luego de responder. Puedes salir del juego en cualquier momento presionando Escape.";
             const utterance = new SpeechSynthesisUtterance(instructions);
             speechSynthesis.speak(utterance);
         }

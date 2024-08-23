@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Básica de Lengua</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .content {
+            max-width: 600px;
+            margin: auto;
+        }
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Función para hablar el texto proporcionado
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-ES'; // Código para español (España)
+            utterance.onend = function() {
+                speakText("Puedes presionar la tecla Escape para volver a la página anterior.");
+            };
+            speechSynthesis.speak(utterance);
+        }
+
+        // Función para leer todo el contenido del div
+        function readContent() {
+            const contentDiv = document.querySelector('.content');
+            const textToSpeak = contentDiv.textContent || contentDiv.innerText;
+            speakText(textToSpeak);
+        }
+
+        // Función para manejar el evento de tecla Escape
+        function handleEscapeKey(event) {
+            if (event.key === 'Escape') {
+                speechSynthesis.cancel();
+           
+                window.history.back(); // Navega a la página anterior
+            }
+        }
+
+        // Llama a la función para hablar el contenido al cargar la página
+        window.onload = function() {
+            speakText("Conceptos básicos de Literatura");
+            setTimeout(readContent, 3000); // Espera 3 segundos antes de leer el contenido
+        };
+
+        // Añade un evento para escuchar la tecla Escape
+        window.addEventListener('keydown', handleEscapeKey);
+    </script>
+</head>
+<body>
+    <div class="content">
+       
+        <p>En esta página, cubriremos algunos conceptos fundamentales de la literatura.</p>
+        <ul>
+            <li><strong>Géneros Literarios:</strong> Los géneros literarios clasifican las obras en categorías como novela, cuento, poesía, teatro, entre otros, basados en sus características y formas.</li>
+            <li><strong>Narrativa:</strong> La narrativa se refiere a las historias contadas a través de la prosa, y puede incluir novelas, cuentos y relatos.</li>
+            <li><strong>Poesía:</strong> La poesía utiliza un lenguaje rítmico y a menudo metafórico para expresar sentimientos y pensamientos de manera condensada y estilizada.</li>
+            <li><strong>Teatro:</strong> El teatro es una forma de arte literario que se presenta en escena y se centra en la interpretación de personajes y diálogos.</li>
+            <li><strong>Ensayo:</strong> El ensayo es un género que explora y analiza ideas y argumentos sobre diversos temas, ofreciendo la perspectiva del autor.</li>
+        </ul>
+        <div class="controls">
+            <button onclick="speechSynthesis.cancel()">Detener Lectura</button>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

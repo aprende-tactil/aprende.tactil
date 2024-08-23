@@ -56,14 +56,16 @@ document.addEventListener('keydown', function(event) {
         const currentSlide = slides[index];
         const link = currentSlide.querySelector('a');  // Selecciona el primer enlace en el slide
         if (link) {
-            window.open(link.href);  // Abre el enlace en una nueva pestaña
+            window.location.href = link.href;  // Abre el enlace en la misma pestaña
         } else {
             const button = currentSlide.querySelector('button'); // Selecciona el botón dentro de la diapositiva activa
             if (button) {
                 const pdfFile = button.getAttribute('onclick').match(/'(.+\.pdf)'/)[1]; // Extrae el nombre del PDF
-                window.open(`leerPDF.html?pdf=${pdfFile}`, '_blank'); // Abre leerPDF.html con el PDF especificado
+                window.location.href = `leerPDF.html?pdf=${pdfFile}`; // Abre leerPDF.html con el PDF especificado en la misma pestaña
             }
         }
+    } else if (event.key === 'Escape') {
+        window.history.back(); // Regresa a la página anterior
     }
 });
 

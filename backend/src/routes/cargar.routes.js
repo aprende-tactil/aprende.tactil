@@ -5,5 +5,5 @@ import {Router} from 'express';
 export const rutaPdf = Router();
 
 rutaPdf.post('/cargar',subirPdf.single('pdf'),cargarPdf);
-rutaPdf.get('/obtener/:category',obtPdf);
+rutaPdf.get('/obtener/:categoria',obtPdf);
 

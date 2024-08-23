@@ -25,8 +25,8 @@ export const cargarPdf = async (req,res)=>{
 //obtener pdf
 export const obtPdf = async(req,res)=>{
     try{
-        const {category} = req.params
-        const obtPdf = await libro.find()
+        const {categoria} = req.params
+        const obtPdf = await libro.find({categoria:categoria})
         res.status(200).json(obtPdf);
     }catch(error){
         console.log(error)

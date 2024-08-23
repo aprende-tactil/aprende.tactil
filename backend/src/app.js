@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import mongoose from './db/db.js'
 import { rutaPdf } from './routes/cargar.routes.js';
+import { authRouter } from './routes/auth.routes.js';
 
 const app = express();
 
@@ -11,9 +12,11 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(cors());
+app.use(express.json());
 
 //rutas
 app.use('/api/',rutaPdf)
+app.use('/api/',authRouter);
 
 //confifuracion del puerto
 const PORT = process.env.PORT || 4000;

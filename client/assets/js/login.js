@@ -9,12 +9,12 @@ const login = async (e) => {
 
     // Tomamos los valores de los inputs.
     const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const contrasenia = document.getElementById('password').value;
     
     // Realizamos la peticion a nuestro servidor.
     const peticion = await fetch('http://localhost:4000/api/login', {
         method: 'POST',
-        body: JSON.stringify({email, password}),
+        body: JSON.stringify({email, contrasenia}),
         headers: {
             'Content-type': 'application/json'
         }
@@ -35,7 +35,7 @@ const login = async (e) => {
         localStorage.setItem('token', respuesta.token);
 
         // Redirigimos al usuario a la landingPage.
-        window.location.href = '/client/index.html'
+        window.location.href = '/client/'
     }
 
 }

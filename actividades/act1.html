@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Básica de Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .content {
+            max-width: 600px;
+            margin: auto;
+        }
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Función para hablar el texto proporcionado
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-ES'; // Código para español (España)
+            utterance.onend = function() {
+                speakText("Puedes presionar la tecla Escape para volver a la página anterior.");
+            };
+            speechSynthesis.speak(utterance);
+        }
+
+        // Función para leer todo el contenido del div
+        function readContent() {
+            const contentDiv = document.querySelector('.content');
+            const textToSpeak = contentDiv.textContent || contentDiv.innerText;
+            speakText(textToSpeak);
+        }
+
+        // Función para manejar el evento de tecla Escape
+        function handleEscapeKey(event) {
+            if (event.key === 'Escape') {
+                speechSynthesis.cancel();
+           
+                window.history.back(); // Navega a la página anterior
+            }
+        }
+
+        // Llama a la función para hablar el contenido al cargar la página
+        window.onload = function() {
+            speakText("Conceptos básicos de matemáticas");
+            setTimeout(readContent, 3000); // Espera 3 segundos antes de leer el contenido
+        };
+
+        // Añade un evento para escuchar la tecla Escape
+        window.addEventListener('keydown', handleEscapeKey);
+    </script>
+</head>
+<body>
+    <div class="content">
+        <h1>Información Básica de Matemáticas</h1>
+        <p>En esta página, cubriremos algunos conceptos fundamentales.</p>
+        <ul>
+            <li><strong>Aritmética:</strong> La aritmética es la rama de las matemáticas que trata de los números y las operaciones básicas como la suma, la resta, la multiplicación y la división.</li>
+            <li><strong>Geometría:</strong> La geometría estudia las propiedades y las medidas de las figuras geométricas.</li>
+            <li><strong>Álgebra:</strong> El álgebra se ocupa de las reglas para operar con símbolos y variables.</li>
+            <li><strong>Trigonometría:</strong> La trigonometría estudia las relaciones entre los ángulos y los lados de los triángulos.</li>
+            <li><strong>Cálculo:</strong> El cálculo se centra en el estudio de los cambios y las tasas de cambio, e incluye conceptos como derivadas e integrales.</li>
+        </ul>
+        <div class="controls">
+            <button onclick="speechSynthesis.cancel()">Detener Lectura</button>
+        </div>
+    </div>
+</body>
+</html>

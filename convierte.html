@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF a Voz en Español</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.8.160/pdf.min.js"></script>
+    <script>
+        let utterance;
+
+        async function fetchPDF(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.arrayBuffer();
+            } catch (error) {
+                console.error('Error fetching PDF:', error);
+                alert('Error al obtener el PDF.');
+            }
+        }
+
+        async function convertPDFToText(pdfData) {
+            try {
+                const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+                let text = '';
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const content = await page.getTextContent();
+                    text += content.items.map(item => item.str).join(' ') + ' ';
+                }
+                return text;
+            } catch (error) {
+                console.error('Error converting PDF to text:', error);
+                alert('Error al convertir el PDF a texto.');
+            }
+        }
+
+        async function convertPDF() {
+            const pdfURL = localStorage.getItem('pdfURL');
+            console.log('PDF URL retrieved from local storage:', pdfURL); // Debugging
+            if (!pdfURL) {
+                alert('No se encontró la URL del PDF en el almacenamiento local.');
+                return;
+            }
+
+            const pdfData = await fetchPDF(pdfURL);
+            if (pdfData) {
+                const text = await convertPDFToText(pdfData);
+                if (text) {
+                    speakText(text);
+                }
+            }
+        }
+
+        function speakText(text) {
+           
+
+            utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-ES'; // Código para español (España)
+            speechSynthesis.speak(utterance);
+        }
+
+        function stopSpeech() {
+            speechSynthesis.cancel(); // Detiene la reproducción actual
+        }
+
+        window.onload = function() {
+            convertPDF(); // Llama a convertPDF cuando la página se carga
+        };
+    </script>
+</head>
+<body>
+    <div class="pdf-voice-controls">
+        <button onclick="stopSpeech()">Detener</button>
+    </div>
+</body>
+</html>

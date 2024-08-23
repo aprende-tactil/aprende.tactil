@@ -56,7 +56,7 @@ document.addEventListener('keydown', function(event) {
         const currentSlide = slides[index];
         const link = currentSlide.querySelector('a');  // Selecciona el primer enlace en el slide
         if (link) {
-            window.open(link.href, '_blank');  // Abre el enlace en una nueva pestaña
+            window.open(link.href);  // Abre el enlace en una nueva pestaña
         } else {
             const button = currentSlide.querySelector('button'); // Selecciona el botón dentro de la diapositiva activa
             if (button) {

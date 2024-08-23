@@ -2,11 +2,16 @@
 <head>
     <meta charset="UTF-8">
     <title>PDF a Voz en Español</title>
+    <link rel="stylesheet" href="assets/style/escuchar.css">
 </head>
 <body>
-    <input type="file" id="pdf-file" accept=".pdf"/>
-    <button onclick="convertPDF()">Convertir a Voz</button>
-    <button onclick="stopSpeech()">Detener</button>
+    <div class="container">
+        <h1>PDF a Voz en Español</h1>
+        <input type="file" id="pdf-file" accept=".pdf"/>
+        <br>
+        <button onclick="convertPDF()">Convertir a Voz</button>
+        <button onclick="stopSpeech()">Detener</button>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="assets/js/traducir.js"></script>
